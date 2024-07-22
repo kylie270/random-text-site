@@ -1,17 +1,21 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
+    flex-direction: column; /* 縦に配置 */
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
-    padding: 0 10px; /* スマホでの左右の余白を追加 */
+    padding: 0; /* 内側の余白を削除 */
     box-sizing: border-box;
 }
 
 .container {
-    text-align: center;
+    display: flex;
+    flex-direction: column; /* 縦に配置 */
+    justify-content: center;
+    align-items: center;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
@@ -19,20 +23,21 @@ body {
     width: 100%;
     max-width: 400px; /* 最大幅を設定 */
     box-sizing: border-box; /* パディングを含めてサイズを計算 */
+    flex: 1;
 }
 
 h1 {
-    margin-top: 0; /* 上部の余白をリセット */
-    margin-bottom: 20px; /* 下部の余白を設定 */
+    margin: 0; /* 上下の余白をリセット */
+    font-size: 24px; /* 見出しのフォントサイズを設定 */
 }
 
 p {
     margin: 20px 0; /* 上下の余白を設定 */
-    writing-mode: vertical-rl; /* 縦書きモード */
-    text-align: start; /* 縦書きのテキストの開始位置を設定 */
-    display: inline-block; /* 縦書きが適切に表示されるように設定 */
+    font-size: 14px; /* フォントサイズを小さく設定 */
+    line-height: 1.5; /* 行間を調整 */
+    text-align: center; /* 中央揃えに設定 */
     white-space: pre-wrap; /* テキストが折り返されるように設定 */
-    height: auto; /* 高さを自動調整 */
+    overflow-wrap: break-word; /* 単語の折り返しを許可 */
 }
 
 button {
@@ -40,8 +45,8 @@ button {
     font-size: 16px;
     cursor: pointer;
     border: none;
-    background-color: #007bff;
-    color: #ffffff;
+    background-color: #ffffff; /* ボタンの背景色を設定 */
+    color: #000000;
     border-radius: 5px;
     transition: background-color 0.3s;
     width: 100%; /* ボタンを全幅に設定 */
@@ -49,16 +54,20 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #ffffff; /* ボタンのホバー時の背景色を設定 */
 }
 
 /* 画面幅が600px未満の場合のスタイル */
 @media (max-width: 600px) {
+    body {
+        padding: 0 10px; /* スマホでの左右の余白を追加 */
+    }
+
     .container {
         padding: 15px;
     }
 
-    button {
-        padding: 15px;
+    p {
+        font-size: 12px; /* スマホ画面ではフォントサイズをさらに小さくする */
     }
 }
