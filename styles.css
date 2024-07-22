@@ -22,6 +22,8 @@ body {
     max-width: 400px; /* 最大幅を設定 */
     box-sizing: border-box;
     padding: 20px;
+    text-align: center;
+    writing-mode: vertical-rl; /* 縦書きに設定 */
 }
 
 h1 {
@@ -31,12 +33,12 @@ h1 {
     top: 20px; /* 上からの位置を設定 */
     left: 50%;
     transform: translateX(-50%);
+    writing-mode: horizontal-tb; /* タイトルは横書き */
 }
 
 p {
     margin: 0;
     font-size: 14px; /* 中央の文章のフォントサイズを小さくする */
-    text-align: center;
     padding: 20px 0; /* 上下のパディングを設定 */
     white-space: nowrap; /* テキストが折り返されないように設定 */
     overflow: hidden; /* オーバーフローするテキストを隠す */
@@ -49,8 +51,8 @@ button {
     font-size: 16px;
     cursor: pointer;
     border: none;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #000000;
+    color: #ffffff;
     border-radius: 5px;
     transition: background-color 0.3s;
     width: 100%;
