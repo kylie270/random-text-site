@@ -1,43 +1,47 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column; /* 縦に配置 */
+    flex-direction: column; /* 縦方向のレイアウトに設定 */
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
-    padding: 0; /* 内側の余白を削除 */
+    padding: 0;
     box-sizing: border-box;
+    overflow: hidden; /* コンテンツがはみ出さないように設定 */
 }
 
 .container {
     display: flex;
-    flex-direction: column; /* 縦に配置 */
+    flex-direction: column; /* 縦方向のレイアウトに設定 */
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 100%;
     width: 100%;
     max-width: 400px; /* 最大幅を設定 */
-    box-sizing: border-box; /* パディングを含めてサイズを計算 */
-    flex: 1;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
 h1 {
-    margin: 0; /* 上下の余白をリセット */
+    margin: 0;
     font-size: 24px; /* 見出しのフォントサイズを設定 */
+    position: fixed;
+    top: 20px; /* 上からの位置を設定 */
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 p {
-    margin: 20px 0; /* 上下の余白を設定 */
-    font-size: 14px; /* フォントサイズを小さく設定 */
-    line-height: 1.5; /* 行間を調整 */
-    text-align: center; /* 中央揃えに設定 */
-    white-space: pre-wrap; /* テキストが折り返されるように設定 */
-    overflow-wrap: break-word; /* 単語の折り返しを許可 */
+    margin: 0;
+    font-size: 14px; /* 中央の文章のフォントサイズを小さくする */
+    text-align: center;
+    padding: 20px 0; /* 上下のパディングを設定 */
+    white-space: nowrap; /* テキストが折り返されないように設定 */
+    overflow: hidden; /* オーバーフローするテキストを隠す */
+    text-overflow: ellipsis; /* 長すぎるテキストに省略記号を表示 */
+    box-sizing: border-box;
 }
 
 button {
@@ -45,26 +49,31 @@ button {
     font-size: 16px;
     cursor: pointer;
     border: none;
-    background-color: #ffffff; /* ボタンの背景色を設定 */
+    background-color: #ffffff;
     color: #000000;
     border-radius: 5px;
     transition: background-color 0.3s;
-    width: 100%; /* ボタンを全幅に設定 */
-    box-sizing: border-box; /* パディングを含めてサイズを計算 */
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 20px; /* 下からの位置を設定 */
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 button:hover {
-    background-color: #ffffff; /* ボタンのホバー時の背景色を設定 */
+    background-color: #ffffff;
 }
 
 /* 画面幅が600px未満の場合のスタイル */
 @media (max-width: 600px) {
-    body {
-        padding: 0 10px; /* スマホでの左右の余白を追加 */
-    }
-
     .container {
         padding: 15px;
+    }
+
+    button {
+        padding: 15px;
+        font-size: 14px; /* スマホ画面ではボタンのフォントサイズを小さくする */
     }
 
     p {
